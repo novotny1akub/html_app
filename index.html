@@ -9,9 +9,11 @@
                     padding: 1pt;
                 }
                 h1{background-color: grey}
-                form{
-                    // width: 90%;
+                div{
+                    width: 90%;
                     border: 1px solid black;
+                    margin: 4px;
+                    padding: 8pt;
                 }
             </style>
         </head>
@@ -23,12 +25,11 @@
                 <input id = "copied_text" value = "Text of your blogpost." ></input>
                 <button>Submit</button>
                 <h2>Posts</h2>
-                <form>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non, officia! Praesentium temporibus quo quas itaque aliquid inventore tempora similique suscipit, saepe corrupti totam iusto sed, et facilis reprehenderit atque animi?
-                </form>
-                <form>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non, officia! Praesentium temporibus quo quas itaque aliquid inventore tempora similique suscipit, saepe corrupti totam iusto sed, et facilis reprehenderit atque animi?
-                </form>
+                
+                <div>
+                    <!-- here go posts from firebase -->
+                </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
         <script src="blog.js"></script>
