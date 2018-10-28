@@ -45,16 +45,19 @@
         storageBucket: "greenfoxblog.appspot.com",
         messagingSenderId: "376688960466"
         };
-        firebase.initializeApp(config);
 
+
+        firebase.initializeApp(config);
         fb = firebase.database();
 
-        // saving post
+        // getting data ready saving post
         let path = "posts/1";
         let dataToSave = {
         title: "My first saved blog post",
         text: "Some hilarious content, which proves how awesome I am."
         };
+
+        fb.ref(path).set(dataToSave);
 
         // loading existing posts
         fb.ref("posts").once('value').then(data => {
