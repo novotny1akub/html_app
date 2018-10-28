@@ -7,39 +7,29 @@ projectId: "greenfoxblog",
 storageBucket: "greenfoxblog.appspot.com",
 messagingSenderId: "376688960466"
 };
-
+// Firebase init
 firebase.initializeApp(config);
 fb = firebase.database();
 
-
-
-
-
-
 // LOADING existing posts
 fb.ref("posts").once('value').then(data => {
-
   // getting data
   let savedPosts = data.val();
-
   // looping through data fetched from Firebase
   var i;
   for (i = 1; i < savedPosts.length; i++) { 
     console.log(i)
-
     $('div').append(
       `
       <h2> ${savedPosts[i].title} </h2>
       <p> ${savedPosts[i].text} </p>
       `
     )
-
   }
+});
 
-  });
 
-
-// button click event updating the database
+// BUTTON click event, purpose is to update current post to dtb and also to the webpage
 $('button').on('click', (event) => {
   // number of existing posts (working)
   fb.ref("posts").once('value').then(data => {
@@ -52,8 +42,8 @@ $('button').on('click', (event) => {
     // updating the current posts to Firebase
     let path = "posts/" + String( nr_posts );
     let dataToSave = {
-    title: $('#title').val(),
-    text: $('#copied_text').val()
+      title: $('#title').val(),
+      text: $('#copied_text').val()
     };
     fb.ref(path).set(dataToSave);
 
@@ -63,21 +53,8 @@ $('button').on('click', (event) => {
       <p> ${dataToSave.text} </p>
       `
     )
-
-    })
-
-  /*
-  // getting data ready saving post
-  let path = "posts/" + "2";
-  let dataToSave = {
-  title: $('#title').val(),
-  text: $('#copied_text').val()
-  };
-
-  fb.ref(path).set(dataToSave);
-  */
-
   })
+})
 
 /*
 // UPDATING
@@ -91,20 +68,4 @@ For deleting we just need the specific path we want to remove, and use the remov
 
 // DELETING
 fb.ref("posts/2").remove();
-*/
-  
-/*
-// button event
-$('button').on('click', (event) => {
-  $('body').append(
-    `<form>${$('#copied_text').val()}</form>`
-  )
-
-  $( "form" ).last().hide();
-  $( "form" ).last().toggle('slow'); // toggle() / show()
-
-  // clear the text area
-  $('#copied_text').val()
-
-  })  
 */
