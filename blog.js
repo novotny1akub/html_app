@@ -1,4 +1,4 @@
-// Firebase connection config
+// Firebase connection config.
 var config = {
 apiKey: "AIzaSyAXss0HuO6uUcBFaPelQiMPw3ljO-NlHIY",
 authDomain: "greenfoxblog.firebaseapp.com",
