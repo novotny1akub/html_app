@@ -18,9 +18,9 @@
         <body>
                 <h1>The blog</h1>
                 <h2>Add a new post</h2>
-                <h3>Title</h3>
-                <input id = "copied_text">
-                </input>
+                <input id = "title" value = "A title" ></input>
+                <br>
+                <input id = "copied_text" value = "Text of your blogpost." ></input>
                 <button>Submit</button>
                 <h2>Posts</h2>
                 <form>
@@ -30,54 +30,7 @@
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non, officia! Praesentium temporibus quo quas itaque aliquid inventore tempora similique suscipit, saepe corrupti totam iusto sed, et facilis reprehenderit atque animi?
                 </form>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="blog.js"></script>
-
-        <!-- firebase -->
-
         <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
-        <script>
-        // Initialize Firebase
-        var config = {
-        apiKey: "AIzaSyAXss0HuO6uUcBFaPelQiMPw3ljO-NlHIY",
-        authDomain: "greenfoxblog.firebaseapp.com",
-        databaseURL: "https://greenfoxblog.firebaseio.com",
-        projectId: "greenfoxblog",
-        storageBucket: "greenfoxblog.appspot.com",
-        messagingSenderId: "376688960466"
-        };
-
-
-        firebase.initializeApp(config);
-        fb = firebase.database();
-
-        // getting data ready saving post
-        let path = "posts/1";
-        let dataToSave = {
-        title: "My first saved blog post",
-        text: "Some hilarious content, which proves how awesome I am."
-        };
-
-        fb.ref(path).set(dataToSave);
-
-        // loading existing posts
-        fb.ref("posts").once('value').then(data => {
-        let savedPosts = data.val();
-        });
-
-        /*
-        // UPDATING
-        let samePath = "posts/1";
-        let updatedData = {
-        title: "My first edited and updated blog post",
-        text: "Some hilarious content again, which proves how awesome I am again."
-        };
-        fb.ref(samePath).set(updatedData);
-        For deleting we just need the specific path we want to remove, and use the remove() keyword:
-
-        // DELETING
-        fb.ref("posts/2").remove();
-        */
-
-        </script>
+        <script src="blog.js"></script>
         </body>
     </html>
